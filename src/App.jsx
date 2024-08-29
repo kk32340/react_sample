@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactFlow, {
+import  {
   Controls,
-  Background,
+  Background,  
 } from 'reactflow';
 
 import 'reactflow/dist/style.css';
@@ -12,7 +12,7 @@ import RotationNode from "./components/Rotation";
 import ScaleNode from "./components/Scale";
 
 
-
+import ReactFlow  from 'reactflow';
 
 const nodeTypes={
   Output:Output,
@@ -37,12 +37,26 @@ export default function App() {
 } = useFlowContext();
 
 
+  // onload = (reactFlowInstance) => {
+  //   reactFlowInstance.fitView();
+  //   console.log('flow loaded:', reactFlowInstance);
+  // }
+
+
+  const reactFlowInstance = useReactFlow();
+
+  const handleNodeClick = useCallback((event, node) => {
+    // Fit the view to the clicked node
+    reactFlowInstance.fitView({ nodes: [node] });
+  }, [reactFlowInstance]);
+
 
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        onNodeClick={handleNodeClick}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}

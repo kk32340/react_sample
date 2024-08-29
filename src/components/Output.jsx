@@ -17,8 +17,6 @@ function Box(props) {
   )
 }
 
-
-
 function Scene() {
     return (
         <Canvas>
@@ -30,28 +28,52 @@ function Scene() {
 }
 
 
-
-
-
 export function Output({data}) {
     return (
-        <div className='h-80 w-70 rounded-md bg-back overflow-hidden border border-solid border-back'>
-        <Handle type="target" position={Position.Left} id="p" style={{top:60}}>
-            <div className='text-white relative left-3 bottom-3'>p</div>
-        </Handle>
-        <Handle type="target" position={Position.Left} id="r" style={{top:100}}>
-            <div className='text-white relative left-3 bottom-3'>r</div>
-        </Handle>
-        <Handle type="target" position={Position.Left} id="s" style={{top:140}}>
-            <div className='text-white relative left-3 bottom-3'>s</div>
-        </Handle>
-            <div className="p-2 bg-orange-500 z-10  text-white">
-                Output
+
+        
+            <div  className='h-80 w-70 rounded-md bg-back overflow:auto border border-solid border-back'>
+            
+                
+                {/* <div style={{ maxHeight:300, overflowY: 'scroll', textAlign:'justify', position:'relative' }}> */}
+       
+
+
+                <Handle type="target" position={Position.Left} id="p" style={{top:0}}>
+                    <div className='text-white relative left-3 bottom-3'>p1</div>
+                </Handle>
+                
+                
+                <Handle type="target" position={Position.Left} id="p" style={{top:0}}>
+                    <div className='text-white relative left-3 bottom-3'>p</div>
+                </Handle>
+
+
+                <Handle type="target" position={Position.Left} id="p" style={{top:60}}>
+                    <div className='text-white relative left-3 bottom-3'>p</div>
+                </Handle>
+                
+                
+                <Handle type="target" position={Position.Left} id="r" style={{top:100}}>
+                    <div className='text-white relative left-3 bottom-3'>r</div>
+                </Handle>
+
+
+                <Handle type="target" position={Position.Left} id="s" style={{top:140}}>
+                    <div className='text-white relative left-3 bottom-3'> test </div>
+                </Handle>
+
+                {/* </div> */}
+
+                <div className="p-2 bg-orange-500 z-10  text-white">
+                        Output
+                </div>
+
+                <div>
+                    <Scene />
+                </div>
             </div>
-            <div>
-                <Scene />
-            </div>
-        </div>
+        
     )
 }
 
